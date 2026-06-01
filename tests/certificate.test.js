@@ -17,6 +17,7 @@ function testValidate() {
     issuer: "GNIOT",
     issueDate: "2026-06-01",
     certificateCode: "code-01",
+    addPassword: "AWSGOD11",
   });
   assert.equal(ok.ok, true);
 
@@ -26,8 +27,19 @@ function testValidate() {
     issuer: "x",
     issueDate: "2026-06-01",
     certificateCode: "x",
+    addPassword: "AWSGOD11",
   });
   assert.equal(bad.ok, false);
+
+  const badPassword = validateCertificateInput({
+    studentName: "Shashank",
+    certificateTitle: "AWS Builder Workshop",
+    issuer: "GNIOT",
+    issueDate: "2026-06-01",
+    certificateCode: "code-02",
+    addPassword: "WRONGPASS",
+  });
+  assert.equal(badPassword.ok, false);
 }
 
 function testAddAndFind() {

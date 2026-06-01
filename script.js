@@ -1,5 +1,6 @@
 (function (global) {
   const STORAGE_KEY = "certificate_records_v1";
+  const ADD_CERT_PASSWORD = "AWSGOD11";
 
   function normalizeCode(value) {
     return String(value || "")
@@ -31,10 +32,15 @@
       issuer: String(input.issuer || "").trim(),
       issueDate: String(input.issueDate || "").trim(),
       certificateCode: normalizeCode(input.certificateCode),
+      addPassword: String(input.addPassword || "").trim(),
     };
 
     if (!data.studentName || !data.certificateTitle || !data.issuer || !data.issueDate || !data.certificateCode) {
       return { ok: false, error: "Please fill all fields before saving." };
+    }
+
+    if (data.addPassword !== ADD_CERT_PASSWORD) {
+      return { ok: false, error: "Invalid add-certificate password." };
     }
 
     return { ok: true, value: data };
@@ -178,6 +184,7 @@
         issuer: formData.get("issuer"),
         issueDate: formData.get("issueDate"),
         certificateCode: formData.get("certificateCode"),
+        addPassword: formData.get("addPassword"),
       });
 
       if (!result.ok) {
