@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Verification Portal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="page-shell nav-inner">
+        <p class="brand">Certificate Verification Hub</p>
+        <nav class="nav-links">
+          <a href="#add-certificate">Add Certificate</a>
+          <a href="#verify-certificate">Verify Certificate</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero page-shell">
+        <div>
+          <p class="eyebrow">Secure • Fast • Frontend Only</p>
+          <h1>Verify Physical Certificates with Printed Code</h1>
+          <p class="hero-copy">
+            Add certificate records in this portal and verify any physical certificate on this page using its printed
+            verification code.
+          </p>
+        </div>
+        <div class="glass-card stat-panel">
+          <p class="stat-label">Certificates Added</p>
+          <p id="cert-count" class="stat-value">0</p>
+          <p class="stat-meta">Saved in this browser using local storage.</p>
+        </div>
+      </section>
+
+      <section class="page-shell split-layout">
+        <article id="add-certificate" class="glass-card card-panel">
+          <h2>Add Certificate</h2>
+          <p class="section-copy">Use this form to register certificates and generate verification records.</p>
+
+          <form id="add-form" class="form-grid" novalidate>
+            <label>
+              Student Name
+              <input id="student-name" name="studentName" type="text" placeholder="e.g. Shashank Kumar" required />
+            </label>
+
+            <label>
+              Certificate Title
+              <input id="certificate-title" name="certificateTitle" type="text" placeholder="e.g. AWS Cloud Foundations" required />
+            </label>
+
+            <label>
+              Issuer
+              <input id="issuer" name="issuer" type="text" placeholder="e.g. GNIOT X AWS Student Builder Group" required />
+            </label>
+
+            <label>
+              Issue Date
+              <input id="issue-date" name="issueDate" type="date" required />
+            </label>
+
+            <label class="full-width">
+              Printed Verification Code
+              <input
+                id="certificate-code"
+                name="certificateCode"
+                type="text"
+                placeholder="e.g. GNIOT-AWS-2026-001"
+                required
+              />
+            </label>
+
+            <button type="submit">Add Certificate</button>
+          </form>
+
+          <p id="add-feedback" class="feedback" aria-live="polite"></p>
+        </article>
+
+        <article id="verify-certificate" class="glass-card card-panel">
+          <h2>Verify Physical Certificate</h2>
+          <p class="section-copy">Enter the printed code from the certificate to verify authenticity.</p>
+
+          <form id="verify-form" class="verify-row" novalidate>
+            <input
+              id="verify-code"
+              name="verifyCode"
+              type="text"
+              placeholder="Enter printed certificate code"
+              required
+            />
+            <button type="submit">Verify</button>
+          </form>
+
+          <div id="verify-result" class="verify-result" aria-live="polite"></div>
+        </article>
+      </section>
+
+      <section class="page-shell list-section">
+        <div class="list-header">
+          <h2>Added Certificates</h2>
+          <button id="clear-all" class="danger-btn" type="button">Clear All</button>
+        </div>
+        <div id="certificate-list" class="certificate-list"></div>
+      </section>
+    </main>
+
+    <footer class="page-shell footer-note">
+      Frontend-only demo • Verification data is stored in your browser and not synced to a backend.
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

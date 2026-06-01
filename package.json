@@ -1,0 +1,9 @@
+{
+  "name": "certificate-verification-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend-only certificate add and verification portal",
+  "scripts": {
+    "test": "node tests/certificate.test.js"
+  }
+}
