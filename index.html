@@ -20,99 +20,19 @@
     <main>
       <section class="hero page-shell">
         <div>
-          <p class="eyebrow">Secure • Fast • Frontend Only</p>
-          <h1>Verify Physical Certificates with Printed Code</h1>
-          <p class="hero-copy">
-            Add certificate records in this portal and verify any physical certificate on this page using its printed
-            verification code.
-          </p>
+          <p class="eyebrow">Secure • Fast • Backend Ready</p>
+          <h1>Certificate Verification Portal</h1>
+          <p class="hero-copy">Choose an action below to add or verify certificates.</p>
+          <div style="margin-top:1rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+            <a class="code-badge" href="add.html">Add Certificate</a>
+            <a class="code-badge" href="verify.html">Verify Certificate</a>
+          </div>
         </div>
         <div class="glass-card stat-panel">
           <p class="stat-label">Certificates Added</p>
           <p id="cert-count" class="stat-value">0</p>
-          <p class="stat-meta">Saved in this browser using local storage.</p>
+          <p class="stat-meta">Shows local count; backend storage optional.</p>
         </div>
-      </section>
-
-      <section class="page-shell split-layout">
-        <article id="add-certificate" class="glass-card card-panel">
-          <h2>Add Certificate</h2>
-          <p class="section-copy">Use this form to register certificates and generate verification records.</p>
-
-          <form id="add-form" class="form-grid" novalidate>
-            <label>
-              Student Name
-              <input id="student-name" name="studentName" type="text" placeholder="e.g. Shashank Kumar" required />
-            </label>
-
-            <label>
-              Certificate Title
-              <input id="certificate-title" name="certificateTitle" type="text" placeholder="e.g. AWS Cloud Foundations" required />
-            </label>
-
-            <label>
-              Issuer
-              <input id="issuer" name="issuer" type="text" placeholder="e.g. GNIOT X AWS Student Builder Group" required />
-            </label>
-
-            <label>
-              Issue Date
-              <input id="issue-date" name="issueDate" type="date" required />
-            </label>
-
-            <label class="full-width">
-              Printed Verification Code
-              <input
-                id="certificate-code"
-                name="certificateCode"
-                type="text"
-                placeholder="e.g. GNIOT-AWS-2026-001"
-                required
-              />
-            </label>
-
-            <label class="full-width">
-              Add Certificate Password
-              <input
-                id="add-password"
-                name="addPassword"
-                type="password"
-                placeholder="Enter add-certificate password"
-                required
-              />
-            </label>
-
-            <button type="submit">Add Certificate</button>
-          </form>
-
-          <p id="add-feedback" class="feedback" aria-live="polite"></p>
-        </article>
-
-        <article id="verify-certificate" class="glass-card card-panel">
-          <h2>Verify Physical Certificate</h2>
-          <p class="section-copy">Enter the printed code from the certificate to verify authenticity.</p>
-
-          <form id="verify-form" class="verify-row" novalidate>
-            <input
-              id="verify-code"
-              name="verifyCode"
-              type="text"
-              placeholder="Enter printed certificate code"
-              required
-            />
-            <button type="submit">Verify</button>
-          </form>
-
-          <div id="verify-result" class="verify-result" aria-live="polite"></div>
-        </article>
-      </section>
-
-      <section class="page-shell list-section">
-        <div class="list-header">
-          <h2>Added Certificates</h2>
-          <button id="clear-all" class="danger-btn" type="button">Clear All</button>
-        </div>
-        <div id="certificate-list" class="certificate-list"></div>
       </section>
     </main>
 

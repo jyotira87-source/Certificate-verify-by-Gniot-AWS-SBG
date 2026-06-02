@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Certificate</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="page-shell nav-inner">
+        <p class="brand">Add Certificate</p>
+        <nav class="nav-links">
+          <a href="/">Home</a>
+          <a href="verify.html">Verify</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-shell">
+        <article class="glass-card card-panel">
+          <h2>Add Certificate</h2>
+          <p class="section-copy">Use this form to register certificates. Backend will be used if available.</p>
+
+          <form id="add-form" class="form-grid" novalidate>
+            <label>
+              Student Name
+              <input id="student-name" name="studentName" type="text" placeholder="e.g. Shashank Kumar" required />
+            </label>
+
+            <label>
+              Certificate Title
+              <input id="certificate-title" name="certificateTitle" type="text" placeholder="e.g. AWS Cloud Foundations" required />
+            </label>
+
+            <label>
+              Issuer
+              <input id="issuer" name="issuer" type="text" placeholder="e.g. GNIOT X AWS Student Builder Group" required />
+            </label>
+
+            <label>
+              Issue Date
+              <input id="issue-date" name="issueDate" type="date" required />
+            </label>
+
+            <label class="full-width">
+              Printed Verification Code
+              <input
+                id="certificate-code"
+                name="certificateCode"
+                type="text"
+                placeholder="e.g. GNIOT-AWS-2026-001"
+                required
+              />
+            </label>
+
+            <label class="full-width">
+              Add Certificate Password
+              <input
+                id="add-password"
+                name="addPassword"
+                type="password"
+                placeholder="Enter add-certificate password"
+                required
+              />
+            </label>
+
+            <button type="submit">Add Certificate</button>
+          </form>
+
+          <p id="add-feedback" class="feedback" aria-live="polite"></p>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

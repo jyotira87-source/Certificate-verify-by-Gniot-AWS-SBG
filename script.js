@@ -1,6 +1,8 @@
 (function (global) {
   const STORAGE_KEY = "certificate_records_v1";
   const ADD_CERT_PASSWORD = "AWSGOD11";
+  // If you host a backend, set window.API_BASE to its origin (e.g. http://localhost:4000)
+  const API_BASE = (typeof window !== 'undefined' && window.API_BASE) ? window.API_BASE : '';
 
   function normalizeCode(value) {
     return String(value || "")
@@ -64,6 +66,20 @@
     };
 
     return { ok: true, records: [createdRecord, ...records], record: createdRecord };
+  }
+
+  async function postToApiAdd(payload) {
+    const url = `${API_BASE}/api/certs`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const json = await res.json().catch(() => ({}));
+      throw new Error(json.error || `Server returned ${res.status}`);
+    }
+    return res.json();
   }
 
   function findByCode(records, code) {
@@ -194,23 +210,33 @@
         return;
       }
 
-      const insertResult = addCertificateRecord(records, result.value);
-      if (!insertResult.ok) {
-        if (addFeedback) {
-          addFeedback.textContent = insertResult.error;
+      // Try backend first (if API_BASE is set or same-origin), otherwise fallback to localStorage
+      (async () => {
+        try {
+          const serverRecord = await postToApiAdd(result.value);
+          // If backend succeeded, refresh local view from server
+          // Prepend server record locally for immediate feedback
+          records = [serverRecord, ...records];
+          writeRecords(records);
+          renderList(records, certList);
+          renderCount(records, certCount);
+          addForm.reset();
+          if (addFeedback) addFeedback.textContent = `Saved (server): ${serverRecord.studentName} • Code ${serverRecord.certificateCode}`;
+        } catch (err) {
+          // fallback to local only
+          const insertResult = addCertificateRecord(records, result.value);
+          if (!insertResult.ok) {
+            if (addFeedback) addFeedback.textContent = insertResult.error;
+            return;
+          }
+          records = insertResult.records;
+          writeRecords(records);
+          renderList(records, certList);
+          renderCount(records, certCount);
+          addForm.reset();
+          if (addFeedback) addFeedback.textContent = `Saved (local): ${insertResult.record.studentName} • Code ${insertResult.record.certificateCode}`;
         }
-        return;
-      }
-
-      records = insertResult.records;
-      writeRecords(records);
-      renderList(records, certList);
-      renderCount(records, certCount);
-      addForm.reset();
-
-      if (addFeedback) {
-        addFeedback.textContent = `Saved: ${insertResult.record.studentName} • Code ${insertResult.record.certificateCode}`;
-      }
+      })();
     });
 
     verifyForm?.addEventListener("submit", (event) => {
@@ -218,8 +244,22 @@
 
       const formData = new FormData(verifyForm);
       const enteredCode = String(formData.get("verifyCode") || "");
-      const record = findByCode(records, enteredCode);
-      showVerificationResult(verifyResult, record, enteredCode);
+      (async () => {
+        try {
+          const url = `${API_BASE}/api/certs/verify?code=${encodeURIComponent(enteredCode)}`;
+          const res = await fetch(url);
+          if (res.ok) {
+            const srv = await res.json();
+            showVerificationResult(verifyResult, srv, enteredCode);
+            return;
+          }
+        } catch (e) {
+          // ignore and fallback
+        }
+
+        const record = findByCode(records, enteredCode);
+        showVerificationResult(verifyResult, record, enteredCode);
+      })();
     });
 
     clearAllButton?.addEventListener("click", () => {

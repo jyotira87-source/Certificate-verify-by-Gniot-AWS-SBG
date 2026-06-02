@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Certificate</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="page-shell nav-inner">
+        <p class="brand">Verify Certificate</p>
+        <nav class="nav-links">
+          <a href="/">Home</a>
+          <a href="add.html">Add</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-shell">
+        <article class="glass-card card-panel">
+          <h2>Verify Physical Certificate</h2>
+          <p class="section-copy">Enter the printed code from the certificate to verify authenticity. This will query the backend if available.</p>
+
+          <form id="verify-form" class="verify-row" novalidate>
+            <input
+              id="verify-code"
+              name="verifyCode"
+              type="text"
+              placeholder="Enter printed certificate code"
+              required
+            />
+            <button type="submit">Verify</button>
+          </form>
+
+          <div id="verify-result" class="verify-result" aria-live="polite"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
