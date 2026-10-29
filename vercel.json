@@ -3,11 +3,3 @@
     { "source": "/api/:path*", "destination": "https://certificate-verify-by-gniot-aws-sbg.onrender.com/:path*" }
   ]
 }
-{
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://REPLACE_WITH_BACKEND.onrender.com/:path*"
-    }
-  ]
-}
