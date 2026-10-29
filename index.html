@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Certificate Verification Portal</title>
+    <title>Advanced Certificate Verification</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="navbar">
       <div class="page-shell nav-inner">
-        <p class="brand">Certificate Verification Hub</p>
+        <p class="brand">Advanced Certificate Verification</p>
         <nav class="nav-links">
           <a href="#add-certificate">Add Certificate</a>
           <a href="#verify-certificate">Verify Certificate</a>
@@ -21,7 +21,7 @@
       <section class="hero page-shell">
         <div>
           <p class="eyebrow">Secure • Fast • Backend Ready</p>
-          <h1>Certificate Verification Portal</h1>
+          <h1>Advanced Certificate Verification</h1>
           <p class="hero-copy">Choose an action below to add or verify certificates.</p>
           <div style="margin-top:1rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
             <a class="code-badge" href="add.html">Add Certificate</a>
@@ -37,9 +37,12 @@
     </main>
 
     <footer class="page-shell footer-note">
-      Frontend-only demo • Verification data is stored in your browser and not synced to a backend.
+      Advanced Certificate Verification • Verification data is stored in your browser and synced to backend when available.
     </footer>
 
+    <div id="toast-container" style="position:fixed;top:1rem;right:1rem;z-index:9999;display:flex;flex-direction:column;gap:0.5rem;"></div>
+
     <script src="script.js"></script>
+    <script src="ui.js"></script>
   </body>
 </html>
