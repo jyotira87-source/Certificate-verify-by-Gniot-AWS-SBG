@@ -1,32 +1,11 @@
 [
   {
-    "id": "ed24c177-293b-4f58-822a-ca2984f3109f",
-    "certificateCode": "EXPIRED-001",
-    "holderName": "Bob Jones",
-    "title": "Legacy Cert",
-    "issuingOrganization": "Test Org",
-    "issueDate": "2020-01-15",
-    "expiryDate": "2021-01-15",
-    "status": "verified",
-    "metadata": {},
-    "revisionNote": null,
-    "createdAt": "2026-10-29T15:14:43.261Z",
-    "updatedAt": "2026-10-29T15:14:43.261Z",
-    "qrUrl": null
-  },
-  {
-    "id": "1624b74b-7929-4829-8d0a-0cb6398fdafe",
-    "certificateCode": "VERIFIED-001",
-    "holderName": "Alice Smith",
-    "title": "AWS Cloud Practitioner",
-    "issuingOrganization": "GNIOT",
+    "id": "1793288909790",
+    "studentName": "Test User",
+    "certificateTitle": "Test Cert",
+    "issuer": "Test Org",
     "issueDate": "2026-01-15",
-    "expiryDate": "2027-01-15",
-    "status": "verified",
-    "metadata": {},
-    "revisionNote": null,
-    "createdAt": "2026-10-29T15:14:43.239Z",
-    "updatedAt": "2026-10-29T15:14:43.239Z",
-    "qrUrl": null
+    "certificateCode": "TEST-001",
+    "createdAt": "2026-10-29T15:48:29.791Z"
   }
 ]

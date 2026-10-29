@@ -1,19 +1,10 @@
 {
-  "name": "advance-certificate-verification",
-  "version": "2.0.0",
+  "name": "certificate-verification-frontend",
+  "version": "1.0.0",
   "private": true,
-  "description": "Advance Certificate Verification — Secure, server-authoritative certificate verification platform",
+  "description": "Certificate add and verification portal",
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "node backend/server.js",
-    "test": "node tests/certificate.test.js",
-    "test:backend": "node tests/backend.test.js",
-    "lint": "node --check backend/server.js && node --check backend/config.js && node --check backend/storage.js && node --check backend/models/*.js && node --check backend/middleware/*.js && node --check backend/routes/*.js && node --check frontend/js/*.js && node --check frontend/js/pages/*.js"
-  },
-  "dependencies": {
-    "bcryptjs": "^2.4.3"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "start": "node backend/index.js",
+    "test": "node tests/certificate.test.js"
   }
 }
