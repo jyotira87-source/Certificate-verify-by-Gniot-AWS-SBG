@@ -3,43 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Certificate Verification Portal</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Advance Certificate Verification</title>
+    <link rel="stylesheet" href="frontend/css/design-tokens.css" />
+    <link rel="stylesheet" href="frontend/css/base.css" />
+    <link rel="stylesheet" href="frontend/css/responsive.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0a0e17" />
   </head>
   <body>
-    <header class="navbar">
-      <div class="page-shell nav-inner">
-        <p class="brand">Certificate Verification Hub</p>
-        <nav class="nav-links">
-          <a href="#add-certificate">Add Certificate</a>
-          <a href="#verify-certificate">Verify Certificate</a>
-        </nav>
+    <nav class="navbar">
+      <div class="navbar-inner container">
+        <div class="brand">Advance Certificate Verification</div>
+        <div class="nav-links">
+          <a href="verify.html">Verify Certificate</a>
+          <a href="admin-login.html">Admin Login</a>
+          <button class="mobile-menu-btn" aria-label="Toggle menu">&#9776;</button>
+        </div>
       </div>
-    </header>
+    </nav>
 
     <main>
-      <section class="hero page-shell">
-        <div>
-          <p class="eyebrow">Secure • Fast • Backend Ready</p>
-          <h1>Certificate Verification Portal</h1>
-          <p class="hero-copy">Choose an action below to add or verify certificates.</p>
-          <div style="margin-top:1rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
-            <a class="code-badge" href="add.html">Add Certificate</a>
-            <a class="code-badge" href="verify.html">Verify Certificate</a>
+      <section class="container" style="padding: var(--space-12) 0 var(--space-16);">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+          <p style="display: inline-block; padding: 0.25rem 0.75rem; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: var(--radius-full); color: #93c5fd; background: rgba(59, 130, 246, 0.1); font-size: var(--text-xs); font-weight: var(--font-weight-semibold);">
+            Advance Certificate Verification
+          </p>
+          <h1 style="font-size: var(--text-4xl); font-weight: var(--font-weight-bold); margin: var(--space-6) 0 var(--space-4); letter-spacing: -0.02em;">
+            Verify certificates with confidence
+          </h1>
+          <p style="font-size: var(--text-lg); color: var(--text-secondary); margin-bottom: var(--space-10); line-height: var(--leading-relaxed);">
+            Secure, server-authoritative certificate verification for students,
+            institutions, and recruiters. Validate credentials instantly with
+            certificate IDs, QR codes, or document scanning.
+          </p>
+
+          <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-12);">
+            <a href="verify.html" class="btn btn-primary btn-lg">Verify a Certificate</a>
+            <a href="#how-it-works" class="btn btn-outline">How it works</a>
           </div>
-        </div>
-        <div class="glass-card stat-panel">
-          <p class="stat-label">Certificates Added</p>
-          <p id="cert-count" class="stat-value">0</p>
-          <p class="stat-meta">Shows local count; backend storage optional.</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-6); text-align: left;">
+            <div class="card">
+              <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-3); color: var(--text-primary);">Instant Verification</h3>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--leading-relaxed);">
+                Enter a certificate ID or scan a QR code to instantly verify
+                authenticity against our secure backend registry.
+              </p>
+            </div>
+            <div class="card">
+              <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-3); color: var(--text-primary);">Document Scanning</h3>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--leading-relaxed);">
+                Use your device camera to scan physical certificates. OCR-assisted
+                extraction helps you review and verify document details.
+              </p>
+            </div>
+            <div class="card">
+              <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-3); color: var(--text-primary);">Secure Registry</h3>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: var(--leading-relaxed);">
+                All records are stored on a secure, authoritative backend with
+                audit trails, status tracking, and administrative controls.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="page-shell footer-note">
-      Frontend-only demo • Verification data is stored in your browser and not synced to a backend.
+    <footer style="border-top: 1px solid var(--border-color); padding: var(--space-8) 0; margin-top: var(--space-12);">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; font-size: var(--text-xs); color: var(--text-muted);">
+        <p>&copy; 2026 Advance Certificate Verification. All rights reserved.</p>
+        <div style="display: flex; gap: var(--space-4);">
+          <a href="help.html">Help</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="frontend/js/config.js"></script>
+    <script type="module" src="frontend/js/theme.js"></script>
+    <script type="module" src="frontend/js/toast.js"></script>
+    <script type="module" src="frontend/js/auth.js"></script>
+    <script type="module" src="frontend/js/api-client.js"></script>
+    <script>
+      const btn = document.querySelector('.mobile-menu-btn');
+      const links = document.querySelector('.nav-links');
+      if (btn && links) {
+        btn.addEventListener('click', () => {
+          links.classList.toggle('open');
+        });
+      }
+    </script>
   </body>
 </html>

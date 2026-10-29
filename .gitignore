@@ -1,0 +1,10 @@
+node_modules/
+package-lock.json
+backend/db.json
+backend/admins.json
+backend/audit.json
+backend/verification-log.json
+backend/*.tmp.*
+.env
+.env.local
+.DS_Store

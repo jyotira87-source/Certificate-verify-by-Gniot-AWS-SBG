@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help &mdash; Advance Certificate Verification</title>
+    <link rel="stylesheet" href="frontend/css/design-tokens.css" />
+    <link rel="stylesheet" href="frontend/css/base.css" />
+    <link rel="stylesheet" href="frontend/css/responsive.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-inner container">
+        <div class="brand">Help</div>
+        <div class="nav-links"><a href="index.html">Home</a></div>
+      </div>
+    </nav>
+    <main>
+      <div class="container" style="padding: var(--space-8) 0 var(--space-16); max-width: 720px; margin: 0 auto;">
+        <h2 style="font-size: var(--text-2xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-6); color: var(--text-primary);">Help &amp; Support</h2>
+        <div style="display: grid; gap: var(--space-6);">
+          <div>
+            <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--text-primary); margin-bottom: var(--space-3);">How to Verify a Certificate</h3>
+            <ol style="color: var(--text-secondary); line-height: var(--leading-relaxed); padding-left: var(--space-6);">
+              <li>Go to the <a href="verify.html" style="color: var(--accent-primary);">Verify Certificate</a> page.</li>
+              <li>Enter the certificate ID printed on the certificate.</li>
+              <li>Click Verify to check against the official registry.</li>
+              <li>Or use <a href="scan.html" style="color: var(--accent-primary);">Scan Certificate</a> to scan with your camera.</li>
+            </ol>
+          </div>
+          <div>
+            <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--text-primary); margin-bottom: var(--space-3);">Understanding Results</h3>
+            <ul style="color: var(--text-secondary); line-height: var(--leading-relaxed); padding-left: var(--space-6);">
+              <li><strong>Verified:</strong> Certificate is authentic and active.</li>
+              <li><strong>Expired:</strong> Certificate is authentic but past its expiry date.</li>
+              <li><strong>Revoked:</strong> Certificate has been revoked by the issuer.</li>
+              <li><strong>Not found:</strong> Certificate ID is not in the registry.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size: var(--text-lg); font-weight: var(--font-weight-semibold); color: var(--text-primary); margin-bottom: var(--space-3);">For Administrators</h3>
+            <ul style="color: var(--text-secondary); line-height: var(--leading-relaxed); padding-left: var(--space-6);">
+              <li>Log in via <a href="admin-login.html" style="color: var(--accent-primary);">Admin Login</a> to register and manage certificates.</li>
+              <li>View audit logs for all administrative actions.</li>
+              <li>Export records as CSV for reporting.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer style="border-top: 1px solid var(--border-color); padding: var(--space-8) 0; margin-top: var(--space-12); text-align: center; font-size: var(--text-xs); color: var(--text-muted);">
+      <p>&copy; 2026 Advance Certificate Verification.</p>
+    </footer>
+  </body>
+</html>
